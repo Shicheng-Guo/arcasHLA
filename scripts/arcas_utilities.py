@@ -33,6 +33,8 @@ __date__        = '2019-06-26'
 
 #-------------------------------------------------------------------------------
 
+verbose = 1
+
 def process_allele(allele, n, keep_alpha = True):
     '''Lowers allele resolution to n-fields.'''
     temp = []
@@ -78,6 +80,9 @@ def run_command(command, message = ''):
     '''Outputs message and command to log, runs command and returns output.'''
     if type(command) == list:
         command = ' '.join(command)
+
+    if verbose:
+        print(command)
 
     if message: 
         log.info(''.join([message,'\n\n\t', command,'\n']))
